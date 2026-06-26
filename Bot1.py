@@ -1,5 +1,3 @@
-API_TOKEN = "8870043387:AAFm2SaIEXuPf688m0Vt7D-rXOYgmB_WURE"
-
 import asyncio
 import logging
 from threading import Thread
@@ -8,13 +6,12 @@ from aiogram import Bot, Dispatcher
 from aiogram.filters import Command
 from aiogram.types import Message
 
-API_TOKEN = "ТВОЙ_ТОКЕН_БОТА"
+API_TOKEN = "8870043387:AAFm2SaIEXuPf688m0Vt7D-rXOYgmB_WURE"
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
 
-# --- Веб-сервер для Render ---
 app = Flask(__name__)
 
 @app.route('/')
@@ -23,7 +20,6 @@ def home():
 
 def run_web():
     app.run(host='0.0.0.0', port=10000)
-# -------------------------------
 
 
 @dp.message(Command("start"))
@@ -45,5 +41,3 @@ async def main():
 if __name__ == "__main__":
     Thread(target=run_web).start()
     asyncio.run(main())
-
-
